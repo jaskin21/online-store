@@ -10,6 +10,7 @@ import AllProductsBanner from '../components/AllProductsBanner';
 import Pagination from '../components/Pagination';
 import LoadingScreen from '../components/LoadingScreen';
 import Searchbar from '../components/sub/Searchbar';
+import CategoryLink from '../components/sub/CategoryLink';
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -32,8 +33,15 @@ const ProductList = () => {
       <Navbar>
         <Searchbar setSearchProduct={setSearchProduct} />
       </Navbar>
+
       <PageSubContainer>
         <AllProductsBanner TotalProduct={products.length} />
+        <div className='container '>
+          <CategoryLink CategoryName={'Electronics'} />
+          <CategoryLink CategoryName={'Jewelery'} />
+          <CategoryLink CategoryName={`Men's Clothing`} />
+          <CategoryLink CategoryName={`Women's Clothing`} />
+        </div>
         {loading ? (
           <ProductListContainer>
             {products

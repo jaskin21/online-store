@@ -66,7 +66,6 @@ const Navbar = ({ children }) => {
         <div className='flex flex-col sm:flex-row'>
           <NavLink href={'/'} linkName={'Home'} />
           <NavLink href={'/shop'} linkName={'Shop'} />
-          <NavLink href={'/category'} linkName={'Category'} />
           <NavLink href={'/contact'} linkName={'Contact'} />
           <NavLink href={'/about'} linkName={'About'} />
         </div>
