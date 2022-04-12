@@ -1,5 +1,3 @@
-const shop = [
-  {
-    shopName: 'Secret Shop',
-  },
-];
+export const shopInfo = {
+  shopName: 'Secret Shop',
+};

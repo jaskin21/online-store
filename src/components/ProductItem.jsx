@@ -3,11 +3,14 @@ import { Link } from 'react-router-dom';
 
 const ProductItem = ({ imageUrl, price, title, category, productId }) => {
   return (
-    <div className='w-full max-w-sm mx-auto rounded-md shadow-2xl overflow-hidden bg-gray-300 hover:opacity-80 '>
-      <Link to={'/shop/product'}>
+    <div className='w-full max-w-sm mx-auto rounded-md shadow-2xl overflow-hidden bg-white hover:underline p-3  '>
+      <Link to={`${productId}`}>
         <div
-          className='flex items-end justify-end h-56 w-full bg-cover '
-          style={{ backgroundImage: `url(${imageUrl})` }}
+          className='flex items-end justify-end h-56 w-full  bg-no-repeat bg-contain bg-center'
+          // bg-top bg-cover
+          style={{
+            backgroundImage: `url(${imageUrl})`,
+          }}
         >
           <button className='p-2 rounded-full bg-blue-600 text-white mx-5 -mb-4 hover:bg-blue-500 focus:outline-none focus:bg-blue-500'>
             <svg
