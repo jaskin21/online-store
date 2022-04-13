@@ -7,6 +7,7 @@ import PageSubContainer from '../components/shared/PageSubContainer';
 import Footer from '../components/Footer';
 import ProductOverview from '../components/ProductOverview';
 import LoadingScreen from '../components/LoadingScreen';
+import Cart from '../components/Cart';
 
 const ProductPage = () => {
   const { id } = useParams();
@@ -16,6 +17,7 @@ const ProductPage = () => {
   const [image, setImage] = useState();
   const [category, setCategory] = useState();
   const [loading, setLoading] = useState(false);
+  const [cartDisplay, setCartDisplay] = useState(false);
 
   console.log(id);
 
@@ -31,13 +33,23 @@ const ProductPage = () => {
     setLoading(true);
   };
 
+  const handleCart = () => {
+    console.log('cart');
+    if (cartDisplay === true) {
+      return setCartDisplay(false);
+    }
+    return setCartDisplay(true);
+  };
+
   useEffect(() => {
     fetchDataFromApi();
   }, []);
 
   return (
     <PageContainer>
-      <Navbar />
+      <Navbar handleCart={handleCart}>
+        <Cart open={cartDisplay} cartDisplay={handleCart} />
+      </Navbar>
       <PageSubContainer>
         {loading ? (
           <ProductOverview

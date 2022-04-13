@@ -11,40 +11,88 @@ import Pagination from '../components/Pagination';
 import LoadingScreen from '../components/LoadingScreen';
 import Searchbar from '../components/sub/Searchbar';
 import CategoryLink from '../components/sub/CategoryLink';
+import Cart from '../components/Cart';
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
+  const [category, setCategory] = useState('All');
+  const [showProduct, setShowProduct] = useState([]);
   const [loading, setLoading] = useState(false);
   const [searchProduct, setSearchProduct] = useState('');
+  const [cartDisplay, setCartDisplay] = useState(false);
+
+  const handleCategory = (e) => {
+    setCategory(e.target.value);
+    console.log(e.target.value);
+  };
+
+  const fetchAllProducts = async () => {
+    const { data } = await axios.get('https://fakestoreapi.com/products', {
+      cache: 'no-store',
+    });
+    setProducts(data);
+    console.log(data);
+    setLoading(true);
+    setShowProduct(data);
+  };
+
+  const filterProducts = () => {
+    const newProduct = products.filter((product) => {
+      if (category === 'all') {
+        return product;
+      }
+      return product.category === category;
+    });
+    setShowProduct(newProduct);
+  };
 
   useEffect(() => {
     fetchAllProducts();
   }, []);
 
-  const fetchAllProducts = async () => {
-    const { data } = await axios.get('https://fakestoreapi.com/products');
-    setProducts(data);
-    console.log(data);
-    setLoading(true);
+  useEffect(() => {
+    filterProducts();
+  }, [category]);
+
+  const handleCart = () => {
+    console.log('cart');
+    if (cartDisplay === true) {
+      return setCartDisplay(false);
+    }
+    return setCartDisplay(true);
   };
 
   return (
     <PageContainer>
-      <Navbar>
+      <Navbar handleCart={handleCart}>
         <Searchbar setSearchProduct={setSearchProduct} />
+        <Cart open={cartDisplay} cartDisplay={handleCart} />
       </Navbar>
 
       <PageSubContainer>
-        <AllProductsBanner TotalProduct={products.length} />
+        <AllProductsBanner TotalProduct={showProduct.length} />
         <div className='container '>
-          <CategoryLink CategoryName={'Electronics'} />
-          <CategoryLink CategoryName={'Jewelery'} />
-          <CategoryLink CategoryName={`Men's Clothing`} />
-          <CategoryLink CategoryName={`Women's Clothing`} />
+          <CategoryLink handleCategory={handleCategory} CategoryName={'all'} />
+          <CategoryLink
+            handleCategory={handleCategory}
+            CategoryName={'electronics'}
+          />
+          <CategoryLink
+            handleCategory={handleCategory}
+            CategoryName={'jewelery'}
+          />
+          <CategoryLink
+            handleCategory={handleCategory}
+            CategoryName={`men's clothing`}
+          />
+          <CategoryLink
+            handleCategory={handleCategory}
+            CategoryName={`women's clothing`}
+          />
         </div>
         {loading ? (
           <ProductListContainer>
-            {products
+            {showProduct
               .filter((val) => {
                 if (searchProduct == '') {
                   return val;

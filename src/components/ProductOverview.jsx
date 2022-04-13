@@ -42,8 +42,8 @@ const ProductOverview = ({ title, price, description, category, src }) => {
           </ol>
         </nav>
 
-        <div className='mt-6 max-w-2xl mx-auto sm:px-6 lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-3 lg:gap-x-8'>
-          <div className='py-10 lg:pt-6 lg:pb-16 lg:col-start-1 lg:col-span-2 lg:border-r  lg:pr-10'>
+        <div className='m-8 max-w-2xl mx-auto sm:px-6 lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-3 lg:gap-x-8'>
+          <div className='py-10 lg:pt-6 lg:pb-16 lg:col-start-1 lg:col-span-2  lg:pr-10'>
             <div>
               <div className='lg:col-span-2  lg:pr-8'>
                 <h1 className='text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl'>
@@ -85,9 +85,21 @@ const ProductOverview = ({ title, price, description, category, src }) => {
             <img
               src={src}
               alt='Model wearing plain white basic tee.'
-              className='w-full h-full object-center shadow-md object-contain '
+              className='w-full h-full object-center shadow-md object-contain z-0 '
             />
           </div>
+          <button
+            type='submit'
+            className='m-1 w-full bg-amber-400 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-black hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+          >
+            Add to bag
+          </button>
+          <button
+            type='submit'
+            className='m-1 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+          >
+            Add to bag
+          </button>
         </div>
       </div>
     </div>

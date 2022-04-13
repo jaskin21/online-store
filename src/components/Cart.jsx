@@ -1,137 +1,174 @@
 import React from 'react';
 
-const Cart = () => {
+const Cart = ({ open, cartDisplay }) => {
   return (
-    <div className='fixed right-0 top-0 max-w-xs w-full h-full px-6 py-4 transition duration-300 transform overflow-y-auto bg-white border-l-2 border-gray-300'>
-      <div className='flex items-center justify-between'>
-        <h3 className='text-2xl font-medium text-gray-700'>Your cart</h3>
-        <button className='text-gray-600 focus:outline-none'>
-          <svg
-            className='h-5 w-5'
-            fill='none'
-            stroke-linecap='round'
-            stroke-linejoin='round'
-            stroke-width='2'
-            viewBox='0 0 24 24'
-            stroke='currentColor'
-          >
-            <path d='M6 18L18 6M6 6l12 12'></path>
-          </svg>
-        </button>
-      </div>
+    <div
+      className={`fixed inset-0 overflow-hidden z-50 ${
+        open
+          ? 'transform transition ease-in-out duration-400 sm:duration-700 max-w-full'
+          : 'transform transition ease-in-out  duration-1000 sm:duration-1000 translate-x-full '
+      }`}
+      aria-labelledby='slide-over-title'
+      role='dialog'
+      aria-modal='true'
+    >
+      <div className='absolute inset-0 overflow-hidden'>
+        <div
+          className={`absolute inset-0 bg-gradient-to-l from-gray-400  transition-opacity`}
+          aria-hidden='true'
+        ></div>
 
-      <hr className='my-3' />
-      <div className='flex justify-between mt-6'>
-        <div className='flex'>
-          <img
-            className='h-20 w-20 object-cover rounded'
-            // src='https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80'
-            alt=''
-          />
-          <div className='mx-3'>
-            <h3 className='text-sm text-gray-600'>Mac Book Pro</h3>
-            <div className='flex items-center mt-2'>
-              <button className='text-gray-500 focus:outline-none focus:text-gray-600'>
-                <svg
-                  className='h-5 w-5'
-                  fill='none'
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
-                  stroke-width='2'
-                  viewBox='0 0 24 24'
-                  stroke='currentColor'
-                >
-                  <path d='M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z'></path>
-                </svg>
-              </button>
-              <span className='text-gray-700 mx-2'>2</span>
-              <button className='text-gray-500 focus:outline-none focus:text-gray-600'>
-                <svg
-                  className='h-5 w-5'
-                  fill='none'
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
-                  stroke-width='2'
-                  viewBox='0 0 24 24'
-                  stroke='currentColor'
-                >
-                  <path d='M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z'></path>
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-        <span className='text-gray-600'>20$</span>
-      </div>
-
-      <div className='flex justify-between mt-6'>
-        <div className='flex'>
-          <img
-            className='h-20 w-20 object-cover rounded'
-            // src='https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80'
-            alt=''
-          />
-          <div className='mx-3'>
-            <h3 className='text-sm text-gray-600'>Mac Book Pro</h3>
-            <div className='flex items-center mt-2'>
-              <button className='text-gray-500 focus:outline-none focus:text-gray-600'>
-                <svg
-                  className='h-5 w-5'
-                  fill='none'
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
-                  stroke-width='2'
-                  viewBox='0 0 24 24'
-                  stroke='currentColor'
-                >
-                  <path d='M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z'></path>
-                </svg>
-              </button>
-              <span className='text-gray-700 mx-2'>2</span>
-              <button className='text-gray-500 focus:outline-none focus:text-gray-600'>
-                <svg
-                  className='h-5 w-5'
-                  fill='none'
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
-                  stroke-width='2'
-                  viewBox='0 0 24 24'
-                  stroke='currentColor'
-                >
-                  <path d='M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z'></path>
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-        <span className='text-gray-600'>20$</span>
-      </div>
-      <div className='mt-8'>
-        <form className='flex items-center justify-center'>
-          <input
-            className='form-input w-48'
-            type='text'
-            placeholder='Add promocode'
-          />
-          <button className='ml-3 flex items-center px-3 py-2 bg-blue-600 text-white text-sm uppercase font-medium rounded hover:bg-blue-500 focus:outline-none focus:bg-blue-500'>
-            <span>Apply</span>
-          </button>
-        </form>
-      </div>
-      <a className='flex items-center justify-center mt-4 px-3 py-2 bg-blue-600 text-white text-sm uppercase font-medium rounded hover:bg-blue-500 focus:outline-none focus:bg-blue-500'>
-        <span>Chechout</span>
-        <svg
-          className='h-5 w-5 mx-2'
-          fill='none'
-          stroke-linecap='round'
-          stroke-linejoin='round'
-          stroke-width='2'
-          viewBox='0 0 24 24'
-          stroke='currentColor'
+        <div
+          className={`pointer-events-none fixed inset-y-0 right-0 flex  pl-10 ${
+            open
+              ? 'transform transition ease-in-out duration-400 sm:duration-700 max-w-full'
+              : 'transform transition ease-in-out  duration-400 sm:duration-700 translate-x-full '
+          }`}
         >
-          <path d='M17 8l4 4m0 0l-4 4m4-4H3'></path>
-        </svg>
-      </a>
+          <div className='pointer-events-auto w-screen max-w-md'>
+            <div className='flex h-full flex-col overflow-y-scroll bg-white shadow-xl'>
+              <div className='flex-1 overflow-y-auto py-6 px-4 sm:px-6'>
+                <div className='flex items-start justify-between'>
+                  <h2
+                    className='text-lg font-medium text-gray-900'
+                    id='slide-over-title'
+                  >
+                    Shopping cart
+                  </h2>
+                  <div className='ml-3 flex h-7 items-center'>
+                    <button
+                      onClick={cartDisplay}
+                      type='button'
+                      className='-m-2 p-2 text-gray-400 hover:text-gray-500'
+                    >
+                      <span className='sr-only'>Close panel</span>
+                      <svg
+                        className='h-6 w-6'
+                        xmlns='http://www.w3.org/2000/svg'
+                        fill='none'
+                        viewBox='0 0 24 24'
+                        stroke='currentColor'
+                        aria-hidden='true'
+                      >
+                        <path
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          strokeWidth='2'
+                          d='M6 18L18 6M6 6l12 12'
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                <div className='mt-8'>
+                  <div className='flow-root'>
+                    <ul role='list' className='-my-6 divide-y divide-gray-200'>
+                      <li className='flex py-6'>
+                        <div className='h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200'>
+                          <img
+                            src='https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg'
+                            alt='Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.'
+                            className='h-full w-full object-cover object-center'
+                          />
+                        </div>
+
+                        <div className='ml-4 flex flex-1 flex-col'>
+                          <div>
+                            <div className='flex justify-between text-base font-medium text-gray-900'>
+                              <h3>
+                                <a href='#'> Throwback Hip Bag </a>
+                              </h3>
+                              <p className='ml-4'>$90.00</p>
+                            </div>
+                            <p className='mt-1 text-sm text-gray-500'>Salmon</p>
+                          </div>
+                          <div className='flex flex-1 items-end justify-between text-sm'>
+                            <p className='text-gray-500'>Qty 1</p>
+
+                            <div className='flex'>
+                              <button
+                                type='button'
+                                className='font-medium text-indigo-600 hover:text-indigo-500'
+                              >
+                                Remove
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+
+                      <li className='flex py-6'>
+                        <div className='h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200'>
+                          <img
+                            src='https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg'
+                            alt='Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.'
+                            className='h-full w-full object-cover object-center'
+                          />
+                        </div>
+
+                        <div className='ml-4 flex flex-1 flex-col'>
+                          <div>
+                            <div className='flex justify-between text-base font-medium text-gray-900'>
+                              <h3>
+                                <a href='#'> Medium Stuff Satchel </a>
+                              </h3>
+                              <p className='ml-4'>$32.00</p>
+                            </div>
+                            <p className='mt-1 text-sm text-gray-500'>Blue</p>
+                          </div>
+                          <div className='flex flex-1 items-end justify-between text-sm'>
+                            <p className='text-gray-500'>Qty 1</p>
+
+                            <div className='flex'>
+                              <button
+                                type='button'
+                                className='font-medium text-indigo-600 hover:text-indigo-500'
+                              >
+                                Remove
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className='border-t border-gray-200 py-6 px-4 sm:px-6'>
+                <div className='flex justify-between text-base font-medium text-gray-900'>
+                  <p>Subtotal</p>
+                  <p>$262.00</p>
+                </div>
+                <p className='mt-0.5 text-sm text-gray-500'>
+                  Shipping and taxes calculated at checkout.
+                </p>
+                <div className='mt-6'>
+                  <a
+                    href='#'
+                    className='flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700'
+                  >
+                    Checkout
+                  </a>
+                </div>
+                <div className='mt-6 flex justify-center text-center text-sm text-gray-500'>
+                  <p>
+                    or{' '}
+                    <button
+                      onClick={cartDisplay}
+                      type='button'
+                      className='font-medium text-indigo-600 hover:text-indigo-500'
+                    >
+                      Continue Shopping<span aria-hidden='true'> &rarr;</span>
+                    </button>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

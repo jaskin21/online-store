@@ -2,7 +2,7 @@ import React from 'react';
 import NavLink from './sub/NavLink';
 import { shopInfo } from '../data/shopInfo';
 
-const Navbar = ({ children }) => {
+const Navbar = ({ children, handleCart }) => {
   return (
     <div className='container mx-auto px-6 py-3'>
       <div className='flex items-center justify-between'>
@@ -32,7 +32,10 @@ const Navbar = ({ children }) => {
           {shopInfo.shopName}
         </div>
         <div className='flex items-center justify-end w-full'>
-          <button className='text-slate-800 focus:outline-none mx-4 sm:mx-0'>
+          <button
+            onClick={handleCart}
+            className='text-slate-800 focus:outline-none mx-4 sm:mx-0'
+          >
             <svg
               className='h-10 w-10'
               fill='none'
