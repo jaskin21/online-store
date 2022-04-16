@@ -92,7 +92,7 @@ const ProductOverview = ({ title, price, description, category, src }) => {
             type='submit'
             className='m-1 w-full bg-amber-400 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-black hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
           >
-            Add to bag
+            Buy now
           </button>
           <button
             type='submit'

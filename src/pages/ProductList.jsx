@@ -21,11 +21,6 @@ const ProductList = () => {
   const [searchProduct, setSearchProduct] = useState('');
   const [cartDisplay, setCartDisplay] = useState(false);
 
-  const handleCategory = (e) => {
-    setCategory(e.target.value);
-    console.log(e.target.value);
-  };
-
   const fetchAllProducts = async () => {
     const { data } = await axios.get('https://fakestoreapi.com/products', {
       cache: 'no-store',
@@ -60,6 +55,11 @@ const ProductList = () => {
       return setCartDisplay(false);
     }
     return setCartDisplay(true);
+  };
+
+  const handleCategory = (e) => {
+    setCategory(e.target.value);
+    console.log(e.target.value);
   };
 
   return (

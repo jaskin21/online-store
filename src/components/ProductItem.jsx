@@ -1,7 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ProductItem = ({ imageUrl, price, title, category, productId }) => {
+const ProductItem = ({
+  imageUrl,
+  price,
+  title,
+  category,
+  productId,
+  addToCart,
+}) => {
   return (
     <div className='w-full max-w-sm mx-auto rounded-md shadow-2xl overflow-hidden bg-white hover:underline p-3  '>
       <button className='p-2 rounded-full bg-blue-600 text-white -mb-4 hover:bg-blue-500 focus:outline-none focus:bg-blue-900'>

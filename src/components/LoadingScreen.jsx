@@ -6,7 +6,7 @@ const LoadingScreen = () => {
       <div className='p-32'>
         <button
           type='button'
-          className='flex items-center rounded-lg bg-indigo-500 px-10 py-20 text-white'
+          className='flex items-center rounded-lg bg-indigo-500 px-10 py-8 text-white'
           disabled
         >
           <svg
