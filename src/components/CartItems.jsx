@@ -1,7 +1,7 @@
 import React from 'react';
 import CartSubItems from './sub/CartSubItems';
 
-const CartItems = () => {
+const CartItems = ({ cartListItems }) => {
   return (
     <div className='flex justify-center my-6'>
       <div className='flex flex-col w-full p-8 text-gray-800 bg-white shadow-lg pin-r pin-y md:w-4/5 lg:w-4/5'>
@@ -22,9 +22,17 @@ const CartItems = () => {
               </tr>
             </thead>
             <tbody>
-              <CartSubItems />
-              <CartSubItems />
-              <CartSubItems />
+              {/* cart here */}
+              {cartListItems.map((product) => (
+                <CartSubItems
+                  key={product.id}
+                  productId={product.id}
+                  imageUrl={product.image}
+                  price={product.price}
+                  title={product.title}
+                  category={product.category}
+                />
+              ))}
             </tbody>
           </table>
           <hr className='pb-6 mt-6' />

@@ -1,26 +1,25 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const CartSubItems = () => {
+const CartSubItems = ({ productId, imageUrl, price, title, category }) => {
   return (
     <tr>
       <td className='hidden pb-4 md:table-cell'>
-        <a href='#'>
-          <img
-            src='https://limg.app/i/Successful-Spider-Biblical-Mutant---Total-War-lKoE7D.jpeg'
-            className='w-20 rounded'
-            alt='Thumbnail'
-          />
-        </a>
+        <Link to={`/shop/${productId}`}>
+          <img src={imageUrl} className='w-20 rounded' alt='Thumbnail' />
+        </Link>
       </td>
       <td>
-        <p className='mb-2 md:ml-4'>Bic 4 colour pen</p>
+        <Link to={`/shop/${productId}`}>
+          <p className='mb-2 md:ml-4'>{title}</p>
+        </Link>
         <form action='' method='POST'>
           <button type='submit' className='text-gray-700 md:ml-4'>
             <small>(Remove item)</small>
           </button>
         </form>
       </td>
-      <td className='justify-center md:justify-end md:flex md:mt-8'>
+      <td className='justify-center md:justify-end md:flex mt-6'>
         <div className='w-20 h-10'>
           <div className='relative flex flex-row w-full h-8'>
             <input
@@ -31,10 +30,10 @@ const CartSubItems = () => {
         </div>
       </td>
       <td className='hidden text-right md:table-cell'>
-        <span className='text-sm lg:text-base font-medium'>1.50€</span>
+        <span className='text-sm lg:text-base font-medium'>{price}</span>
       </td>
       <td className='text-right'>
-        <span className='text-sm lg:text-base font-medium'>7.50€</span>
+        <span className='text-sm lg:text-base font-medium'>20.00€</span>
       </td>
     </tr>
   );

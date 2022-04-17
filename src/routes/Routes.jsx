@@ -16,6 +16,7 @@ const RoutesPage = ({
   setShowProduct,
   handleAddToCart,
   setLoading,
+  cartListItems,
 }) => {
   return (
     <div>
@@ -33,13 +34,16 @@ const RoutesPage = ({
               setShowProduct={setShowProduct}
               handleAddToCart={handleAddToCart}
               setLoading={setLoading}
+              cartListItems={cartListItems}
             />
           }
         />
         <Route exact path='/' element={<HomePage />} />
         <Route path='/shop/:id' element={<ProductPage />} />
-
-        <Route path='/cart' element={<MyShoppingCart />} />
+        <Route
+          path='/cart'
+          element={<MyShoppingCart cartListItems={cartListItems} />}
+        />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </div>

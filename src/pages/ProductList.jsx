@@ -61,7 +61,11 @@ const ProductList = ({
 
   return (
     <PageContainer>
-      <Navbar handleCart={handleCart} setLoading={setLoading}>
+      <Navbar
+        handleCart={handleCart}
+        setLoading={setLoading}
+        cartListItems={cartListItems}
+      >
         <Searchbar setSearchProduct={setSearchProduct} />
         <Cart
           open={cartDisplay}

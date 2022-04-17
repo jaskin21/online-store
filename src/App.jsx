@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { BrowserRouter as Router } from 'react-router-dom';
 import RoutesPage from './routes/Routes';
+import { v4 as uuidv4 } from 'uuid';
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -19,13 +20,11 @@ const App = () => {
   };
 
   const handleAddToCart = (id) => {
-    if (window.confirm('Add to Cart!!')) {
-      console.log(`add to cart: ${id}`);
-      const index = products.findIndex((e) => e.id === id);
-      const object = products[index];
-      setCartListItems([...cartListItems, { ...object }]);
-      console.log(cartListItems);
-    }
+    console.log(`add to cart: ${id}`);
+    const index = products.findIndex((e) => e.id === id);
+    const object = products[index];
+    setCartListItems([...cartListItems, { ...object }]);
+    console.log(cartListItems);
   };
 
   return (
@@ -41,6 +40,7 @@ const App = () => {
           setShowProduct={setShowProduct}
           handleAddToCart={handleAddToCart}
           setLoading={setLoading}
+          cartListItems={cartListItems}
         />
       </Router>
     </div>

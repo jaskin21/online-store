@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import CartProduct from './sub/CartProduct';
 
-const Cart = ({ open, cartDisplay }) => {
+const Cart = ({ open, cartDisplay, cartListItems }) => {
   return (
     <div
       className={`fixed inset-0 overflow-hidden z-50 ${
@@ -62,7 +62,6 @@ const Cart = ({ open, cartDisplay }) => {
                     </button>
                   </div>
                 </div>
-
                 <div className='mt-8'>
                   <div className='flow-root'>
                     <ul
