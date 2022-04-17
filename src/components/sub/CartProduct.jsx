@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CartProduct = () => {
+const CartProduct = ({ CartProduct }) => {
   return (
     <li className='flex py-6'>
       <div className='h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200'>

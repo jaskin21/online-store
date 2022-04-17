@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import ProductItem from '../components/ProductItem';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -13,21 +12,20 @@ import Searchbar from '../components/sub/Searchbar';
 import CategoryLink from '../components/sub/CategoryLink';
 import Cart from '../components/Cart';
 
-const ProductList = () => {
-  const [products, setProducts] = useState([]);
+const ProductList = ({
+  fetchAllProducts,
+  products,
+  loading,
+  searchProduct,
+  setSearchProduct,
+  showProduct,
+  setShowProduct,
+  setLoading,
+  handleAddToCart,
+  cartListItems,
+}) => {
   const [category, setCategory] = useState('All');
-  const [showProduct, setShowProduct] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [searchProduct, setSearchProduct] = useState('');
   const [cartDisplay, setCartDisplay] = useState(false);
-
-  const fetchAllProducts = async () => {
-    const { data } = await axios.get('https://fakestoreapi.com/products');
-    setProducts(data);
-    console.log(data);
-    setLoading(true);
-    setShowProduct(data);
-  };
 
   const filterProducts = () => {
     const newProduct = products.filter((product) => {
@@ -40,6 +38,7 @@ const ProductList = () => {
   };
 
   useEffect(() => {
+    setLoading(false);
     fetchAllProducts();
   }, []);
 
@@ -62,9 +61,13 @@ const ProductList = () => {
 
   return (
     <PageContainer>
-      <Navbar handleCart={handleCart}>
+      <Navbar handleCart={handleCart} setLoading={setLoading}>
         <Searchbar setSearchProduct={setSearchProduct} />
-        <Cart open={cartDisplay} cartDisplay={handleCart} />
+        <Cart
+          open={cartDisplay}
+          cartDisplay={handleCart}
+          cartListItems={cartListItems}
+        />
       </Navbar>
 
       <PageSubContainer>
@@ -108,6 +111,7 @@ const ProductList = () => {
                   price={product.price}
                   title={product.title}
                   category={product.category}
+                  handleAddToCart={handleAddToCart}
                 />
               ))}
           </ProductListContainer>

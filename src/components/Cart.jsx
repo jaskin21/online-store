@@ -65,12 +65,10 @@ const Cart = ({ open, cartDisplay }) => {
 
                 <div className='mt-8'>
                   <div className='flow-root'>
-                    <ul role='list' className='-my-6 divide-y divide-gray-200'>
-                      {/* <CartProduct />
-                      <CartProduct />
-                      <CartProduct />
-                      <CartProduct /> */}
-                    </ul>
+                    <ul
+                      role='list'
+                      className='-my-6 divide-y divide-gray-200'
+                    ></ul>
                   </div>
                 </div>
               </div>

@@ -19,8 +19,6 @@ const ProductPage = () => {
   const [loading, setLoading] = useState(false);
   const [cartDisplay, setCartDisplay] = useState(false);
 
-  console.log(id);
-
   const fetchDataFromApi = async () => {
     const { data } = await axios.get(`https://fakestoreapi.com/products/${id}`);
 
