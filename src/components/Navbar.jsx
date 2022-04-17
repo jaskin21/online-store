@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NavLink from './sub/NavLink';
 import { shopInfo } from '../data/shopInfo';
 
 const Navbar = ({ children, handleCart }) => {
+  const [burger, setBurger] = useState(true);
+
+  const handleClickBurger = () => {
+    console.log('burger');
+    if (burger === true) {
+      return setBurger(false);
+    }
+    return setBurger(true);
+  };
+
   return (
     <div className='container mx-auto px-6 py-3'>
       <div className='flex items-center justify-between'>
@@ -54,6 +64,7 @@ const Navbar = ({ children, handleCart }) => {
 
           <div className='flex sm:hidden'>
             <button
+              onClick={handleClickBurger}
               type='button'
               className='text-gray-600 hover:text-gray-500 focus:outline-none focus:text-gray-500'
               aria-label='toggle menu'
@@ -68,7 +79,11 @@ const Navbar = ({ children, handleCart }) => {
           </div>
         </div>
       </div>
-      <nav className='sm:flex sm:justify-center sm:items-center mt-4'>
+      <nav
+        className={`sm:flex sm:justify-center sm:items-center mt-4 ${
+          burger && 'hidden'
+        }`}
+      >
         <div className='flex flex-col sm:flex-row'>
           <NavLink href={'/'} linkName={'Home'} />
           <NavLink href={'/shop'} linkName={'Shop'} />

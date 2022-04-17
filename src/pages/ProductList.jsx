@@ -22,9 +22,7 @@ const ProductList = () => {
   const [cartDisplay, setCartDisplay] = useState(false);
 
   const fetchAllProducts = async () => {
-    const { data } = await axios.get('https://fakestoreapi.com/products', {
-      cache: 'no-store',
-    });
+    const { data } = await axios.get('https://fakestoreapi.com/products');
     setProducts(data);
     console.log(data);
     setLoading(true);
