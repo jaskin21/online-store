@@ -37,11 +37,13 @@ const CartItems = ({ cartListItems, handleRemoveToCart }) => {
               {cartListItems.map((product) => (
                 <CartSubItems
                   key={product.id}
+                  quantity={product.quantity}
                   productId={product.id}
                   imageUrl={product.image}
                   price={product.price}
                   title={product.title}
                   category={product.category}
+                  totalPrice={product.totalPrice}
                   handleRemoveToCart={handleRemoveToCart}
                 />
               ))}
@@ -127,7 +129,7 @@ const CartItems = ({ cartListItems, handleRemoveToCart }) => {
                         </svg>
                       </button>
                     </form>
-                    Coupon "90off"
+                    Coupon "Jaskin-10%-off"
                   </div>
                   <div className='lg:px-4 lg:py-2 m-2 lg:text-lg font-bold text-center text-green-700'>
                     -133,944.77€

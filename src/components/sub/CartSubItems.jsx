@@ -8,6 +8,8 @@ const CartSubItems = ({
   title,
   category,
   handleRemoveToCart,
+  quantity,
+  totalPrice,
 }) => {
   return (
     <tr>
@@ -33,16 +35,17 @@ const CartSubItems = ({
           <div className='relative flex flex-row w-full h-8'>
             <input
               type='number'
+              defaultValue={quantity}
               className='w-full font-semibold text-center text-gray-700 bg-gray-200 outline-none focus:outline-none hover:text-black focus:text-black'
             />
           </div>
         </div>
       </td>
       <td className='hidden text-right md:table-cell'>
-        <span className='text-sm lg:text-base font-medium'>Php {price} </span>
+        <span className='text-sm lg:text-base font-medium'>{price} </span>
       </td>
       <td className='text-right'>
-        <span className='text-sm lg:text-base font-medium'>20.00€</span>
+        <span className='text-sm lg:text-base font-medium'>{totalPrice}</span>
       </td>
     </tr>
   );
