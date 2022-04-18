@@ -5,14 +5,22 @@ import './styles/css/index.css';
 import NotFound from './pages/NotFound';
 import ProductPage from './pages/ProductPage';
 import ProductList from './pages/ProductList';
+import App from './App';
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Routes>
-      <Route path='/shop' element={<ProductList />} />
-      <Route path='/shop/:id' element={<ProductPage />} />
-      <Route path='*' element={<NotFound />} />
-    </Routes>
-  </BrowserRouter>,
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
   document.getElementById('root')
 );
+
+// ReactDOM.render(
+//   <BrowserRouter>
+//     <Routes>
+//       <Route path='/shop' element={<ProductList />} />
+//       <Route path='/shop/:id' element={<ProductPage />} />
+//       <Route path='*' element={<NotFound />} />
+//     </Routes>
+//   </BrowserRouter>,
+//   document.getElementById('root')
+// );

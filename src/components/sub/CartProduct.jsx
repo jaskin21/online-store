@@ -1,11 +1,11 @@
 import React from 'react';
 
-const CartProduct = () => {
+const CartProduct = ({ productId, imageUrl, price, title, category }) => {
   return (
     <li className='flex py-6'>
       <div className='h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200'>
         <img
-          src='https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg'
+          src={imageUrl}
           alt='Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.'
           className='h-full w-full object-cover object-center'
         />
@@ -14,9 +14,9 @@ const CartProduct = () => {
         <div>
           <div className='flex justify-between text-base font-medium text-gray-900'>
             <h3>
-              <a href='#'> Medium Stuff Satchel </a>
+              <a href='#'> {title} </a>
             </h3>
-            <p className='ml-4'>$32.00</p>
+            <p className='ml-4'>{price}</p>
           </div>
           <p className='mt-1 text-sm text-gray-500'>Blue</p>
         </div>
