@@ -4,7 +4,7 @@ import CartSubItems from './sub/CartSubItems';
 const CartItems = ({ cartListItems, handleRemoveToCart }) => {
   return (
     <div className='flex justify-center my-6'>
-      <div className='flex flex-col w-full p-8 text-gray-800 bg-white shadow-lg pin-r pin-y md:w-4/5 lg:w-4/5'>
+      <div className='flex flex-col w-full p-8 text-gray-800 bg-white shadow-lg pin-r pin-y md:w-4/5 lg:w-4/5 rounded-3xl'>
         <div className='flex-1'>
           <table className='w-full text-sm lg:text-base' cellSpacing='0'>
             <thead>
@@ -90,18 +90,6 @@ const CartItems = ({ cartListItems, handleRemoveToCart }) => {
                   </form>
                 </div>
               </div>
-              <div className='p-4 mt-6 bg-gray-100 rounded-full'>
-                <h1 className='ml-2 font-bold uppercase'>
-                  Instruction for seller
-                </h1>
-              </div>
-              <div className='p-4'>
-                <p className='mb-4 italic'>
-                  If you have some information for the seller you can leave them
-                  in the box below
-                </p>
-                <textarea className='w-full h-24 p-2 bg-gray-100 rounded'></textarea>
-              </div>
             </div>
             <div className='lg:px-2 lg:w-1/2'>
               <div className='p-4 bg-gray-100 rounded-full'>
@@ -145,22 +133,7 @@ const CartItems = ({ cartListItems, handleRemoveToCart }) => {
                     -133,944.77€
                   </div>
                 </div>
-                <div className='flex justify-between pt-4 border-b'>
-                  <div className='lg:px-4 lg:py-2 m-2 text-lg lg:text-xl font-bold text-center text-gray-800'>
-                    New Subtotal
-                  </div>
-                  <div className='lg:px-4 lg:py-2 m-2 lg:text-lg font-bold text-center text-gray-900'>
-                    14,882.75€
-                  </div>
-                </div>
-                <div className='flex justify-between pt-4 border-b'>
-                  <div className='lg:px-4 lg:py-2 m-2 text-lg lg:text-xl font-bold text-center text-gray-800'>
-                    Tax
-                  </div>
-                  <div className='lg:px-4 lg:py-2 m-2 lg:text-lg font-bold text-center text-gray-900'>
-                    2,976.55€
-                  </div>
-                </div>
+
                 <div className='flex justify-between pt-4 border-b'>
                   <div className='lg:px-4 lg:py-2 m-2 text-lg lg:text-xl font-bold text-center text-gray-800'>
                     Total

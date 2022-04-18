@@ -39,7 +39,7 @@ const CartSubItems = ({
         </div>
       </td>
       <td className='hidden text-right md:table-cell'>
-        <span className='text-sm lg:text-base font-medium'>{price}</span>
+        <span className='text-sm lg:text-base font-medium'>Php {price} </span>
       </td>
       <td className='text-right'>
         <span className='text-sm lg:text-base font-medium'>20.00€</span>

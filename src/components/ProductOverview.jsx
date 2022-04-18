@@ -105,7 +105,7 @@ const ProductOverview = ({
           <button
             onClick={() => {
               console.log(id);
-              handleAddToCart(id);
+              handleAddToCart(parseInt(id));
             }}
             type='submit'
             className='m-1 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
