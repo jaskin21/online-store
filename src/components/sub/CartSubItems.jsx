@@ -1,7 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const CartSubItems = ({ productId, imageUrl, price, title, category }) => {
+const CartSubItems = ({
+  productId,
+  imageUrl,
+  price,
+  title,
+  category,
+  handleRemoveToCart,
+}) => {
   return (
     <tr>
       <td className='hidden pb-4 md:table-cell'>
@@ -13,11 +20,13 @@ const CartSubItems = ({ productId, imageUrl, price, title, category }) => {
         <Link to={`/shop/${productId}`}>
           <p className='mb-2 md:ml-4'>{title}</p>
         </Link>
-        <form action='' method='POST'>
-          <button type='submit' className='text-gray-700 md:ml-4'>
-            <small>(Remove item)</small>
-          </button>
-        </form>
+        <button
+          onClick={handleRemoveToCart}
+          type='submit'
+          className='text-gray-700 md:ml-4'
+        >
+          <small>(Remove item)</small>
+        </button>
       </td>
       <td className='justify-center md:justify-end md:flex mt-6'>
         <div className='w-20 h-10'>

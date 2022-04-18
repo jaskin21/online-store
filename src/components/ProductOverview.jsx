@@ -1,7 +1,15 @@
 import React from 'react';
 import Star from '../styles/svg/Star';
 
-const ProductOverview = ({ title, price, description, category, src }) => {
+const ProductOverview = ({
+  id,
+  title,
+  price,
+  description,
+  category,
+  src,
+  handleAddToCart,
+}) => {
   return (
     <div className='bg-white rounded-md'>
       <div className='pt-6 pb-8  '>
@@ -95,6 +103,10 @@ const ProductOverview = ({ title, price, description, category, src }) => {
             Buy now
           </button>
           <button
+            onClick={() => {
+              console.log(id);
+              handleAddToCart(id);
+            }}
             type='submit'
             className='m-1 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
           >

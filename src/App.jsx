@@ -20,11 +20,15 @@ const App = () => {
   };
 
   const handleAddToCart = (id) => {
-    console.log(`add to cart: ${id}`);
+    window.alert('Add to Cart!!');
     const index = products.findIndex((e) => e.id === id);
     const object = products[index];
     setCartListItems([...cartListItems, { ...object }]);
     console.log(cartListItems);
+  };
+
+  const handleRemoveToCart = (id) => {
+    setCartListItems(cartListItems.filter((item) => item.id !== id));
   };
 
   return (
@@ -41,6 +45,7 @@ const App = () => {
           handleAddToCart={handleAddToCart}
           setLoading={setLoading}
           cartListItems={cartListItems}
+          handleRemoveToCart={handleRemoveToCart}
         />
       </Router>
     </div>

@@ -1,27 +1,38 @@
 import React from 'react';
 import CartSubItems from './sub/CartSubItems';
 
-const CartItems = ({ cartListItems }) => {
+const CartItems = ({ cartListItems, handleRemoveToCart }) => {
   return (
     <div className='flex justify-center my-6'>
       <div className='flex flex-col w-full p-8 text-gray-800 bg-white shadow-lg pin-r pin-y md:w-4/5 lg:w-4/5'>
         <div className='flex-1'>
           <table className='w-full text-sm lg:text-base' cellSpacing='0'>
             <thead>
-              <tr className='h-12 uppercase'>
-                <th className='hidden md:table-cell'></th>
-                <th className='text-left'>Product</th>
-                <th className='lg:text-right text-left pl-5 lg:pl-0'>
-                  <span className='lg:hidden' title='Quantity'>
-                    Qtd
-                  </span>
-                  <span className='hidden lg:inline'>Quantity</span>
-                </th>
-                <th className='hidden text-right md:table-cell'>Unit price</th>
-                <th className='text-right'>Total price</th>
-              </tr>
+              {cartListItems.length > 0 && (
+                <tr className='h-12 uppercase'>
+                  <th className='hidden md:table-cell'></th>
+                  <th className='text-left'>Product</th>
+                  <th className='lg:text-right text-left pl-5 lg:pl-0'>
+                    <span className='lg:hidden' title='Quantity'>
+                      Qtd
+                    </span>
+                    <span className='hidden lg:inline'>Quantity</span>
+                  </th>
+                  <th className='hidden text-right md:table-cell'>
+                    Unit price
+                  </th>
+                  <th className='text-right'>Total price</th>
+                </tr>
+              )}
             </thead>
             <tbody>
+              {cartListItems.length === 0 && (
+                <tr className=' text-center text-5xl '>
+                  <td className=' text-center text-5xl '>
+                    <h1>No item Available</h1>
+                  </td>
+                </tr>
+              )}
               {/* cart here */}
               {cartListItems.map((product) => (
                 <CartSubItems
@@ -31,6 +42,7 @@ const CartItems = ({ cartListItems }) => {
                   price={product.price}
                   title={product.title}
                   category={product.category}
+                  handleRemoveToCart={handleRemoveToCart}
                 />
               ))}
             </tbody>

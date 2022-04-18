@@ -5,12 +5,15 @@ import Navbar from '../components/Navbar';
 import PageContainer from '../components/shared/PageContainer';
 import PageSubContainer from '../components/shared/PageSubContainer';
 
-const MyShoppingCart = ({ cartListItems }) => {
+const MyShoppingCart = ({ cartListItems, handleRemoveToCart }) => {
   return (
     <PageContainer>
       <Navbar />
       <PageSubContainer>
-        <CartItems cartListItems={cartListItems} />
+        <CartItems
+          cartListItems={cartListItems}
+          handleRemoveToCart={handleRemoveToCart}
+        />
       </PageSubContainer>
       <Footer />
     </PageContainer>

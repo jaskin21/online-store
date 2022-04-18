@@ -9,7 +9,7 @@ import ProductOverview from '../components/ProductOverview';
 import LoadingScreen from '../components/LoadingScreen';
 import Cart from '../components/Cart';
 
-const ProductPage = () => {
+const ProductPage = ({ handleAddToCart }) => {
   const { id } = useParams();
   const [title, setTitle] = useState();
   const [price, setPrice] = useState();
@@ -51,6 +51,8 @@ const ProductPage = () => {
       <PageSubContainer>
         {loading ? (
           <ProductOverview
+            id={id}
+            handleAddToCart={handleAddToCart}
             title={title}
             price={price}
             description={description}
