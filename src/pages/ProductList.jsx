@@ -25,6 +25,7 @@ const ProductList = ({
   cartListItems,
   subTotalPrice,
   handleRemoveToCart,
+  handleSubTotalPrice,
 }) => {
   const [category, setCategory] = useState('All');
   const [cartDisplay, setCartDisplay] = useState(false);
@@ -50,6 +51,7 @@ const ProductList = ({
 
   const handleCart = () => {
     console.log('cart');
+    handleSubTotalPrice();
     if (cartDisplay === true) {
       return setCartDisplay(false);
     }
@@ -74,6 +76,7 @@ const ProductList = ({
           cartDisplay={handleCart}
           cartListItems={cartListItems}
           handleRemoveToCart={handleRemoveToCart}
+          subTotalPrice={subTotalPrice}
         />
       </Navbar>
 

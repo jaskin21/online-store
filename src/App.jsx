@@ -24,8 +24,6 @@ const App = () => {
     setLoading(true);
   };
 
-  const handleSubTotalPrice = () => {};
-
   const handleAddToCart = (id) => {
     window.alert('Add to Cart!!');
     const cartindex = cartListItems.findIndex((e) => e.id === id);
@@ -56,8 +54,17 @@ const App = () => {
     console.log(subTotalPrice);
   };
 
+  const handleSubTotalPrice = () => {
+    let total = 0;
+    cartListItems.map((item) => {
+      total += item.totalPrice;
+    });
+    setSubTotalPrice(total);
+  };
+
   const handleRemoveToCart = (id) => {
     setCartListItems(cartListItems.filter((item) => item.id !== id));
+    handleSubTotalPrice();
   };
 
   return (

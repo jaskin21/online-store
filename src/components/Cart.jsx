@@ -2,7 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import CartProduct from './sub/CartProduct';
 
-const Cart = ({ open, cartDisplay, cartListItems, handleRemoveToCart }) => {
+const Cart = ({
+  open,
+  cartDisplay,
+  cartListItems,
+  handleRemoveToCart,
+  subTotalPrice,
+}) => {
   return (
     <div
       className={`fixed inset-0 overflow-hidden z-50 ${
@@ -86,7 +92,7 @@ const Cart = ({ open, cartDisplay, cartListItems, handleRemoveToCart }) => {
               <div className='border-t border-gray-200 py-6 px-4 sm:px-6'>
                 <div className='flex justify-between text-base font-medium text-gray-900'>
                   <p>Subtotal</p>
-                  <p>$262.00</p>
+                  <p>${subTotalPrice.toFixed(2)}</p>
                 </div>
                 <p className='mt-0.5 text-sm text-gray-500'>
                   Shipping and taxes calculated at checkout.

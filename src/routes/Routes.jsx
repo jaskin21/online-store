@@ -42,6 +42,7 @@ const RoutesPage = ({
               cartListItems={cartListItems}
               subTotalPrice={subTotalPrice}
               handleRemoveToCart={handleRemoveToCart}
+              handleSubTotalPrice={handleSubTotalPrice}
             />
           }
         />
@@ -53,6 +54,8 @@ const RoutesPage = ({
               handleAddToCart={handleAddToCart}
               cartListItems={cartListItems}
               handleRemoveToCart={handleRemoveToCart}
+              handleSubTotalPrice={handleSubTotalPrice}
+              subTotalPrice={subTotalPrice}
             />
           }
         />

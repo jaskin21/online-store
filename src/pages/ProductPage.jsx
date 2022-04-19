@@ -13,6 +13,7 @@ const ProductPage = ({
   handleAddToCart,
   cartListItems,
   handleRemoveToCart,
+  subTotalPrice,
 }) => {
   const { id } = useParams();
   const [title, setTitle] = useState();
@@ -37,6 +38,7 @@ const ProductPage = ({
 
   const handleCart = () => {
     console.log('cart');
+    handleSubTotalPrice();
     if (cartDisplay === true) {
       return setCartDisplay(false);
     }
@@ -55,6 +57,7 @@ const ProductPage = ({
           cartDisplay={handleCart}
           cartListItems={cartListItems}
           handleRemoveToCart={handleRemoveToCart}
+          subTotalPrice={subTotalPrice}
         />
       </Navbar>
       <PageSubContainer>
