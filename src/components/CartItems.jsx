@@ -1,7 +1,13 @@
 import React from 'react';
 import CartSubItems from './sub/CartSubItems';
 
-const CartItems = ({ cartListItems, handleRemoveToCart }) => {
+const CartItems = ({
+  cartListItems,
+  handleRemoveToCart,
+  subTotalPrice,
+  checkoutPrice,
+  voucher,
+}) => {
   return (
     <div className='flex justify-center my-6'>
       <div className='flex flex-col w-full p-8 text-gray-800 bg-white shadow-lg pin-r pin-y md:w-4/5 lg:w-4/5 rounded-3xl'>
@@ -60,7 +66,7 @@ const CartItems = ({ cartListItems, handleRemoveToCart }) => {
                   If you have a coupon code, please enter it in the box below
                 </p>
                 <div className='justify-center md:flex'>
-                  <form action='' method='POST'>
+                  <form action=''>
                     <div className='flex items-center w-full h-13 pl-3 bg-white bg-gray-100 border rounded-full'>
                       <input
                         type='coupon'
@@ -107,7 +113,7 @@ const CartItems = ({ cartListItems, handleRemoveToCart }) => {
                     Subtotal
                   </div>
                   <div className='lg:px-4 lg:py-2 m-2 lg:text-lg font-bold text-center text-gray-900'>
-                    148,827.53€
+                    {subTotalPrice.toFixed(2)}€
                   </div>
                 </div>
                 <div className='flex justify-between pt-4 border-b'>
@@ -132,7 +138,7 @@ const CartItems = ({ cartListItems, handleRemoveToCart }) => {
                     Coupon "Jaskin-10%-off"
                   </div>
                   <div className='lg:px-4 lg:py-2 m-2 lg:text-lg font-bold text-center text-green-700'>
-                    -133,944.77€
+                    {voucher.toFixed(2)}
                   </div>
                 </div>
 
@@ -141,7 +147,7 @@ const CartItems = ({ cartListItems, handleRemoveToCart }) => {
                     Total
                   </div>
                   <div className='lg:px-4 lg:py-2 m-2 lg:text-lg font-bold text-center text-gray-900'>
-                    17,859.3€
+                    {checkoutPrice.toFixed(2)}€
                   </div>
                 </div>
                 <a href='#'>

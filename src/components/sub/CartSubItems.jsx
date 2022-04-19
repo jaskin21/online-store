@@ -23,7 +23,9 @@ const CartSubItems = ({
           <p className='mb-2 md:ml-4'>{title}</p>
         </Link>
         <button
-          onClick={handleRemoveToCart}
+          onClick={() => {
+            handleRemoveToCart(productId);
+          }}
           type='submit'
           className='text-gray-700 md:ml-4'
         >
@@ -42,10 +44,14 @@ const CartSubItems = ({
         </div>
       </td>
       <td className='hidden text-right md:table-cell'>
-        <span className='text-sm lg:text-base font-medium'>{price} </span>
+        <span className='text-sm lg:text-base font-medium'>
+          {price.toFixed(2)}{' '}
+        </span>
       </td>
       <td className='text-right'>
-        <span className='text-sm lg:text-base font-medium'>{totalPrice}</span>
+        <span className='text-sm lg:text-base font-medium'>
+          {totalPrice.toFixed(2)}
+        </span>
       </td>
     </tr>
   );

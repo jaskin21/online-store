@@ -18,6 +18,10 @@ const RoutesPage = ({
   setLoading,
   cartListItems,
   handleRemoveToCart,
+  subTotalPrice,
+  handleSubTotalPrice,
+  checkoutPrice,
+  voucher,
 }) => {
   return (
     <div>
@@ -36,13 +40,21 @@ const RoutesPage = ({
               handleAddToCart={handleAddToCart}
               setLoading={setLoading}
               cartListItems={cartListItems}
+              subTotalPrice={subTotalPrice}
+              handleRemoveToCart={handleRemoveToCart}
             />
           }
         />
         <Route exact path='/' element={<HomePage />} />
         <Route
           path='/shop/:id'
-          element={<ProductPage handleAddToCart={handleAddToCart} />}
+          element={
+            <ProductPage
+              handleAddToCart={handleAddToCart}
+              cartListItems={cartListItems}
+              handleRemoveToCart={handleRemoveToCart}
+            />
+          }
         />
         <Route
           path='/cart'
@@ -50,6 +62,11 @@ const RoutesPage = ({
             <MyShoppingCart
               cartListItems={cartListItems}
               handleAddToCart={handleAddToCart}
+              handleRemoveToCart={handleRemoveToCart}
+              subTotalPrice={subTotalPrice}
+              handleSubTotalPrice={handleSubTotalPrice}
+              checkoutPrice={checkoutPrice}
+              voucher={voucher}
             />
           }
         />

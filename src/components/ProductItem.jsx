@@ -7,7 +7,6 @@ const ProductItem = ({
   price,
   title,
   productId,
-
   handleAddToCart,
 }) => {
   return (

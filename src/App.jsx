@@ -13,7 +13,8 @@ const App = () => {
 
   // product pricing
   const [subTotalPrice, setSubTotalPrice] = useState(0);
-  const [checkoutPrice, setCheckoutPrice] = useState(1);
+  const [voucher, setVoucher] = useState(0);
+  const [checkoutPrice, setCheckoutPrice] = useState(0);
 
   const fetchAllProducts = async () => {
     const { data } = await axios.get('https://fakestoreapi.com/products');
@@ -23,12 +24,7 @@ const App = () => {
     setLoading(true);
   };
 
-  const handlePrice = () => {
-    let totalPrice = 0;
-    cartListItems.map((item) => {
-      totalPrice += item.price * item.quantity;
-    });
-  };
+  const handleSubTotalPrice = () => {};
 
   const handleAddToCart = (id) => {
     window.alert('Add to Cart!!');
@@ -57,6 +53,7 @@ const App = () => {
       ]);
     }
     console.log(cartListItems);
+    console.log(subTotalPrice);
   };
 
   const handleRemoveToCart = (id) => {
@@ -78,6 +75,10 @@ const App = () => {
           setLoading={setLoading}
           cartListItems={cartListItems}
           handleRemoveToCart={handleRemoveToCart}
+          subTotalPrice={subTotalPrice}
+          handleSubTotalPrice={handleSubTotalPrice}
+          checkoutPrice={checkoutPrice}
+          voucher={voucher}
         />
       </Router>
     </div>

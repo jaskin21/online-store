@@ -9,7 +9,11 @@ import ProductOverview from '../components/ProductOverview';
 import LoadingScreen from '../components/LoadingScreen';
 import Cart from '../components/Cart';
 
-const ProductPage = ({ handleAddToCart }) => {
+const ProductPage = ({
+  handleAddToCart,
+  cartListItems,
+  handleRemoveToCart,
+}) => {
   const { id } = useParams();
   const [title, setTitle] = useState();
   const [price, setPrice] = useState();
@@ -46,7 +50,12 @@ const ProductPage = ({ handleAddToCart }) => {
   return (
     <PageContainer>
       <Navbar handleCart={handleCart}>
-        <Cart open={cartDisplay} cartDisplay={handleCart} />
+        <Cart
+          open={cartDisplay}
+          cartDisplay={handleCart}
+          cartListItems={cartListItems}
+          handleRemoveToCart={handleRemoveToCart}
+        />
       </Navbar>
       <PageSubContainer>
         {loading ? (

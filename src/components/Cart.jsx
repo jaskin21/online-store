@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import CartProduct from './sub/CartProduct';
 
-const Cart = ({ open, cartDisplay, cartListItems }) => {
+const Cart = ({ open, cartDisplay, cartListItems, handleRemoveToCart }) => {
   return (
     <div
       className={`fixed inset-0 overflow-hidden z-50 ${
@@ -64,10 +64,21 @@ const Cart = ({ open, cartDisplay, cartListItems }) => {
                 </div>
                 <div className='mt-8'>
                   <div className='flow-root'>
-                    <ul
-                      role='list'
-                      className='-my-6 divide-y divide-gray-200'
-                    ></ul>
+                    <ul role='list' className='-my-6 divide-y divide-gray-200'>
+                      {cartListItems.map((product) => (
+                        <CartProduct
+                          key={product.id}
+                          quantity={product.quantity}
+                          productId={product.id}
+                          imageUrl={product.image}
+                          price={product.price}
+                          title={product.title}
+                          category={product.category}
+                          totalPrice={product.totalPrice}
+                          handleRemoveToCart={handleRemoveToCart}
+                        />
+                      ))}
+                    </ul>
                   </div>
                 </div>
               </div>

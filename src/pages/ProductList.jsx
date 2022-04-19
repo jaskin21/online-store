@@ -23,6 +23,8 @@ const ProductList = ({
   setLoading,
   handleAddToCart,
   cartListItems,
+  subTotalPrice,
+  handleRemoveToCart,
 }) => {
   const [category, setCategory] = useState('All');
   const [cartDisplay, setCartDisplay] = useState(false);
@@ -71,6 +73,7 @@ const ProductList = ({
           open={cartDisplay}
           cartDisplay={handleCart}
           cartListItems={cartListItems}
+          handleRemoveToCart={handleRemoveToCart}
         />
       </Navbar>
 
@@ -116,6 +119,7 @@ const ProductList = ({
                   title={product.title}
                   category={product.category}
                   handleAddToCart={handleAddToCart}
+                  subTotalPrice={subTotalPrice}
                 />
               ))}
           </ProductListContainer>

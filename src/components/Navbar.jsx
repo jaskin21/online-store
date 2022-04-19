@@ -14,8 +14,8 @@ const Navbar = ({ children, handleCart, cartListItems, cartIcon }) => {
   };
 
   return (
-    <div className='container mx-auto px-6 py-3'>
-      <div className='flex items-center justify-between'>
+    <div className='container mx-auto px-6 py-3 border-b-2'>
+      <div className='flex items-center justify-between '>
         <div className='hidden w-full text-slate-800 md:flex md:items-center'>
           <svg
             className='h-10 w-10'
