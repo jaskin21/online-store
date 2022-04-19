@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Star from '../styles/svg/Star';
 
 const ProductOverview = ({
@@ -20,12 +21,13 @@ const ProductOverview = ({
           >
             <li>
               <div className='flex items-center'>
-                <a
-                  href='/shop'
+                <Link
+                  to={'/shop'}
                   className='mr-2 text-sm font-medium text-gray-900'
                 >
                   Shop
-                </a>
+                </Link>
+
                 <svg
                   width='16'
                   height='20'
@@ -42,9 +44,12 @@ const ProductOverview = ({
 
             <li>
               <div className='flex items-center'>
-                <a href='#' className='mr-2 text-sm font-medium text-gray-900'>
+                <Link
+                  to={'#'}
+                  className='mr-2 text-sm font-medium text-gray-900'
+                >
                   {category}
-                </a>
+                </Link>
               </div>
             </li>
           </ol>
@@ -80,12 +85,6 @@ const ProductOverview = ({
                   <Star />
                   <Star />
                 </div>
-                {/* <a
-                  href='#'
-                  className='ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500'
-                >
-                  117 reviews
-                </a> */}
               </div>
             </div>
           </div>
